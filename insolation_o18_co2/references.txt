@@ -1,0 +1,13 @@
+References:
+
+LR04 benthic 18O stack:
+
+Lisiecki, L.E. and Raymo, M.E., 2005. A Pliocene‐Pleistocene stack of 57 globally distributed benthic δ18O records. Paleoceanography, 20(1).
+
+Antarctica CO2:
+
+Bereiter, B., Eggleston, S., Schmitt, J., Nehrbass‐Ahles, C., Stocker, T.F., Fischer, H., Kipfstuhl, S. and Chappellaz, J., 2015. Revision of the EPICA Dome C CO2 record from 800 to 600 kyr before present. Geophysical Research Letters, 42(2), pp.542-549.
+
+Summer Insolation at 60N:
+
+Berger, A. and Loutre, M.F., 1991. Insolation values for the climate of the last 10 million years. Quaternary Science Reviews, 10(4), pp.297-317.
