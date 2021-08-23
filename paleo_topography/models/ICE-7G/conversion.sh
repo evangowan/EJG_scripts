@@ -9,8 +9,9 @@ time=$1
 
 # This takes ICE-7G and puts it onto a standard grid and file format that is used for the other scripts
 
-# for comparison with PaleoMIST, I am using 0.25 degrees
-resolution=0.25
+# load resolution
+
+source ../../resolution.sh
 
 
 mkdir temp
@@ -20,7 +21,6 @@ mkdir grids
 
 filename=$( awk --field-separator='\t' -v time=${time} '{if ($1 == time) {print $2}}' times_files.txt)
 
-echo ${filename}
 # checks if the filename was found
 
 if [ -z "$filename" ]; then
@@ -38,8 +38,6 @@ fi
 # The ICE-xG files do not include shelves
 
 time_index=$( echo ${time} | awk '{print $1/1000}' )
-
-echo ${time_index}
 
 
 gmt grdsample ${model_dir}${filename}?Topo -T -Rg -I${resolution} -Gtemp/topography.nc
