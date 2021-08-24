@@ -47,7 +47,7 @@ gmt psxy lr04.txt  -BWSen -Bxa100f20+l"Age (kyr BP)" -Bya1f0.5+l"benthic @%12%\1
 gmt pstext mis_text.txt  ${J_options} ${R_options}  -Gwhite -O -K -F+f8p,Helvetica,black+jcm >> ${plot}
 
 gmt pstext << END_TEXT -K -O -J -R ${text_options} -P -Gwhite -D0.1/0.25 -N >> ${plot}
-LR04 benthic stack (Lisiecki and Raymo, 2004)
+LR04 benthic stack (Lisiecki and Raymo, 2005)
 END_TEXT
 
 # CO2
