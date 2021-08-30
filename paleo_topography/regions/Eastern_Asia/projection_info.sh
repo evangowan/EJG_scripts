@@ -17,11 +17,11 @@ west_longitude=100
 east_latitude=49
 east_longitude=150
 
-map_width=7.5c
+map_width=12c
 
 shift_up="-Y12"
 
-scale_x_shift="-X-1.5"
+scale_x_shift="-X-2.8"
 
 J_options="-JA${center_longitude}/${center_latitude}/${map_width}"
 R_options="-R${west_longitude}/${west_latitude}/${east_longitude}/${east_latitude}r"

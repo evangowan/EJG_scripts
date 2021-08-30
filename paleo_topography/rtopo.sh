@@ -46,9 +46,9 @@ source resolution.sh
 
 
 # resample to grid resolution
-gmt grdsample temp/bed_topography.nc -T -Rg -I${resolution} -G${topo_dir}/bed_topography.nc
-gmt grdsample temp/ice_base.nc -T -Rg -I${resolution} -G${topo_dir}/ice_base.nc
-gmt grdsample temp/topography.nc -T -Rg -I${resolution} -G${topo_dir}/topography_shelves.nc
+gmt grdsample temp/bed_topography.nc -rp -Rg -I${resolution} -G${topo_dir}/bed_topography.nc
+gmt grdsample temp/ice_base.nc -rp -Rg -I${resolution} -G${topo_dir}/ice_base.nc
+gmt grdsample temp/topography.nc -rp -Rg -I${resolution} -G${topo_dir}/topography_shelves.nc
 
 
 # for comparison with other models, I want to lob off the ice shelves
@@ -60,7 +60,7 @@ grdmask antarctica_margin.gmt -Rg -I${resolution} -rp -Gtemp/antarctic_mask.nc
 gmt grdmath  temp/ice_base.nc temp/bed_topography.nc SUB ABS 0.1 LT = temp/shelf_mask.nc
 
 
-gmt grdsample temp/shelf_mask.nc -T -Rg -I${resolution} -nn -G${topo_dir}/shelf_mask_temp.nc
+gmt grdsample temp/shelf_mask.nc -rp -Rg -I${resolution} -nn -G${topo_dir}/shelf_mask_temp.nc
 
 gmt grdmath temp/antarctic_mask.nc ${topo_dir}/shelf_mask_temp.nc ADD 0 GT = ${topo_dir}/shelf_mask.nc 
 

@@ -7,10 +7,11 @@ model_dir="model_files/"
 # time in years from the command line
 time=$1
 
-# This takes ICE-7G and puts it onto a standard grid and file format that is used for the other scripts
 
-# for comparison with PaleoMIST, I am using 0.25 degrees
-resolution=0.25
+
+# load resolution
+
+source ../../resolution.sh
 
 
 mkdir temp
@@ -72,6 +73,6 @@ gmt nearneighbor  temp/ice_mask_dump.txt -S1.5d -N4  -I${resolution} -Rg -rp -Gt
 
 # Add the orography difference to the modern topography to get paleotopography
 
-gmt grdmath ../../modern_topography/topography.nc temp/orog_diff.nc ADD = grids/topography_${time}.nc
+gmt grdmath ../../modern_topography/topography.nc temp/orog_diff.nc ADD = grids/topography_${resolution}_${time}.nc
 
 

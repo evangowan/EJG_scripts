@@ -21,7 +21,7 @@ mkdir grids
 
 # gets the file name
 
-filename=${model_dir}reconstruction_0.25_degree.nc
+filename=${model_dir}reconstruction_${resolution}_degree.nc
 
 # checks if the filename was found
 
@@ -50,11 +50,11 @@ fi
 
 
 
-gmt grdsample ${filename}?paleo_topography[${time_index}] -T -Rg -I${resolution} -Ggrids/topography_${time}.nc
+gmt grdsample ${filename}?paleo_topography[${time_index}] -T -Rg -I${resolution} -Ggrids/topography_${resolution}_${time}.nc
 
-gmt grdsample ${filename}?ice_thickness[${time_index}] -T -Rg -I${resolution} -Ggrids/ice_thickness_${time}.nc
+gmt grdsample ${filename}?ice_thickness[${time_index}] -T -Rg -I${resolution} -Ggrids/ice_thickness_${resolution}_${time}.nc
 
-gmt grdsample ${filename}?base_topography[${time_index}] -T -Rg -I${resolution} -Ggrids/subglacial_${time}.nc
+gmt grdsample ${filename}?base_topography[${time_index}] -T -Rg -I${resolution} -Ggrids/subglacial_${resolution}_${time}.nc
 
 
 

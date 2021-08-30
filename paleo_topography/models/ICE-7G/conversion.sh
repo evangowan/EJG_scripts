@@ -47,8 +47,8 @@ gmt grdsample ${model_dir}${filename}?stgit -T -Rg -I${resolution} -nn -Gtemp/ic
 
 gmt grdmath temp/topography.nc temp/ice_thickness.nc SUB = temp/subglacial.nc
 
-mv temp/topography.nc grids/topography_${full_time}.nc
-mv temp/ice_thickness.nc grids/ice_thickness_${full_time}.nc
+mv temp/topography.nc grids/topography_${resolution}_${time}.nc
+mv temp/ice_thickness.nc grids/ice_thickness_${resolution}_${time}.nc
 
-mv temp/subglacial.nc grids/subglacial_${full_time}.nc
+mv temp/subglacial.nc grids/subglacial_${resolution}_${time}.nc
 
