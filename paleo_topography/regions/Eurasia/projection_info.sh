@@ -30,6 +30,7 @@ shift_up="-Y5"
 scale_x_shift="-X-2"
 
 J_options="-JA${center_longitude}/${center_latitude}/${map_width}"
+J_options_nowidth="-JA${center_longitude}/${center_latitude}"
 R_options="-R${west_longitude}/${west_latitude}/${east_longitude}/${east_latitude}r"
 
 

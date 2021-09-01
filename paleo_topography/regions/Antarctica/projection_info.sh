@@ -44,6 +44,7 @@ horizon=-71
 map_scale_factor=48000000 # should be roughly 14 cm
 
 J_options="-JS${center_longitude}/${center_latitude}/${map_width}"
+J_options_nowidth="-JS${center_longitude}/${center_latitude}"
 #J_options="-Js${center_longitude}/${center_latitude}/-71/1:1"
 J_options_project="-Js${center_longitude}/${center_latitude}/${horizon}/1:${map_scale_factor}"
 
@@ -72,7 +73,7 @@ west_latitude=-48.4415197517
 west_longitude=-135
 east_latitude=-48.4415197517
 east_longitude=45
-#R_options="-R${west_longitude}/${west_latitude}/${east_longitude}/${east_latitude}r"
+R_options="-R${west_longitude}/${west_latitude}/${east_longitude}/${east_latitude}r"
 
 
 
