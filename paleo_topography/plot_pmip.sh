@@ -6,7 +6,7 @@ plot_folder="plots/pmip"
 
 mkdir ${plot_folder}
 
-for model in MIROC_PMIP3 MPI-ESM-P_PMIP3 CNRM-CM5_PMIP3
+for model in AWI-ESM_PMIP4 #MIROC_PMIP3 MPI-ESM-P_PMIP3 CNRM-CM5_PMIP3
 do
 
 model_dir=models/${model}
@@ -72,6 +72,14 @@ J_proj_options="-JX${map_width}/0"
 
 for time_period in lgm  pi
 do
+
+file_var="${time_period}_waterdepth"
+if [ -z ${!file_var} ]
+then
+	continuing=""
+else
+	continuing="-K"
+fi
 
 ##########################
 # plot orography
@@ -178,7 +186,10 @@ END_TEXT
 #x_position=0c
 #y_position=16c
 
-psscale -Xa${x_position} -Ya${y_position} -DJBC+w6c/0.5+h+o0/1.5c  ${R_options} ${J_options} -P -K -O -Bx20f10+l"% land" --FONT_LABEL=14p -Ctemp/landsea.cpt   >> $plot
+psscale -Xa${x_position} -Ya${y_position} -DJBC+w6c/0.5+h+o0/1.5c  ${R_options} ${J_options} -P ${continuing} -O -Bx20f10+l"% land" --FONT_LABEL=14p -Ctemp/landsea.cpt   >> $plot
+
+if [ ! -z ${continuing} ]
+then
 
 ####################
 # water depth
@@ -314,6 +325,7 @@ END_TEXT
 
 psscale -Xa${x_position} -Ya${y_position} -DJBC+w6c/0.5+h+o0/1.5c  ${R_options} ${J_options} -P  -O -Bx20f10+l"% ocean" --FONT_LABEL=14p -Ctemp/sealand.cpt   >> $plot
 
+fi
 
 
 done
