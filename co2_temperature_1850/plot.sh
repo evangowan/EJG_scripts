@@ -67,10 +67,10 @@ J_options="-JX${width}/${height}"
 R_options="-R${xmin}/${xmax}/${ymin}/${ymax}"
 
 
+gmt set FONT_ANNOT_PRIMARY 14p
 
-
-gmt psxy  ${berkeley_month}   -Wthin,black ${J_options} ${R_options}  -K  > ${plot}
-gmt psxy  ${berkeley_20} -BWSen -Bya0.5f0.1+l"Global Temperature Amomaly (C)" -Bxa20f5+l"Year" -Wthickest,red ${J_options} ${R_options}  -K -O >> ${plot}
+gmt psxy  ${berkeley_month}   -W2p,black ${J_options} ${R_options}  -K  > ${plot}
+gmt psxy  ${berkeley_20} -BWSen -Bya0.5f0.1+l"Global Temperature Amomaly (C)" -Bxa20f5+l"Year" -W4p,red ${J_options} ${R_options}  -K -O   >> ${plot}
 
 
 
@@ -84,12 +84,12 @@ text_angle="+a0"
 text_options="-F+f${size},${fontname},${color} -F${justification} -F${text_angle} "
 
 
-gmt psxy << END_CAT -Wthin,black ${J_options} ${R_options}  -K  -O >> ${plot}
+gmt psxy << END_CAT -W2p,black ${J_options} ${R_options}  -K  -O >> ${plot}
 1855 1.3
 1870 1.3
 END_CAT
 
-gmt psxy << END_CAT -Wthickest,red ${J_options} ${R_options}  -K  -O >> ${plot}
+gmt psxy << END_CAT -W4p,red ${J_options} ${R_options}  -K  -O >> ${plot}
 1855 1.1
 1870 1.1
 END_CAT
@@ -119,10 +119,10 @@ gmt psxy << END_CAT -W3p,blue ${J_options} ${R_options}  -K  -O >> ${plot}
 1870 410
 END_CAT
 
-gmt psxy  ${law_dome} -BWsen  -Bya40f20+l"CO@-2@- (PPM)"  -W3p,green ${J_options} ${R_options}  -K -O >> ${plot}
+gmt psxy  ${law_dome} -BWsen  -Bya40f20+l"CO@-2@- (PPM)"  -W4p,green ${J_options} ${R_options}  -K -O >> ${plot}
 
 
-gmt psxy << END_CAT -W3p,green ${J_options} ${R_options}  -K  -O >> ${plot}
+gmt psxy << END_CAT -W4p,green ${J_options} ${R_options}  -K  -O >> ${plot}
 1855 430
 1870 430
 END_CAT
