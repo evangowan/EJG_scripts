@@ -38,7 +38,20 @@ tac uncertainty_temp.txt >> uncertainty.txt
 
 gmt psxy uncertainty.txt   -Y3c  ${J_options} ${R_options} -P -K  -Gpink   > ${plot}
 gmt psxy data.txt   -B0e ${J_options} ${R_options} -P -O -K -Sc${dot_size} -Gblack  >> ${plot}
-gmt psxy  lowess.txt  -BWSen -Bya10f5+l"Days since January 1" -Bxa200f100+l"${axis_label}"  ${J_options} ${R_options} -P -O -W${loess_line},red ${font_label} ${font_anno} >> ${plot}
+gmt psxy  lowess.txt  -BWSen -Bya10f5+l"Days since January 1" -Bxa200f100+l"${axis_label}"  ${J_options} ${R_options} -P -O -K -W${loess_line},red ${font_label} ${font_anno} >> ${plot}
 
+# text options for the region name
+size="8p"
+fontname="Helvetica"
+color="black"
+justification="+cTL" # the +c option plots relative to the corners of the map
+#justification="+jBR" # alternatively, plots relative to the location given in the text file
+text_angle="+a0"
+text_options="-F+f${size},${fontname},${color}${text_angle}${justification} "
+
+gmt pstext ${J_options} ${R_options} -P -O ${text_options} -D0.1c/-0.1c << END_CAT  >> ${plot}
+Kyoto cherry blossoms full bloom (Aono, 2012)
+END_CAT
 
 gmt psconvert -Tf -A ${plot}
+gmt psconvert -Tg -A ${plot}
