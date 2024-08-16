@@ -18,7 +18,7 @@ fi
 if [ ! -f Land_and_Ocean_complete.txt ]
 then
 
-wget http://berkeleyearth.lbl.gov/auto/Global/Land_and_Ocean_complete.txt
+wget https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Global/Land_and_Ocean_complete.txt
 
 fi
 
@@ -42,7 +42,7 @@ color="black"
 #justification="+cBL" # the +c option plots relative to the corners of the map
 justification="+cBR" # alternatively, plots relative to the location given in the text file
 text_angle="+a0"
-text_options="-F+f${size},${fontname},${color} -F${justification} -F${text_angle} "
+text_options="-F+f${size},${fontname},${color}${justification}${text_angle} "
 
 
 
@@ -51,7 +51,7 @@ plot=co2_temprature.ps
 # tc plot
 
 xmin=1850
-xmax=2020
+xmax=2030
 
 width="20c"
 height="8c"
@@ -81,7 +81,7 @@ END_TEXT
 
 justification="+jML" # alternatively, plots relative to the location given in the text file
 text_angle="+a0"
-text_options="-F+f${size},${fontname},${color} -F${justification} -F${text_angle} "
+text_options="-F+f${size},${fontname},${color}${justification}${text_angle} "
 
 
 gmt psxy << END_CAT -W2p,black ${J_options} ${R_options}  -K  -O >> ${plot}
@@ -109,7 +109,7 @@ R_options="-R${xmin}/${xmax}/${ymin}/${ymax}"
 
 justification="+jML" # alternatively, plots relative to the location given in the text file
 text_angle="+a0"
-text_options="-F+f${size},${fontname},${color} -F${justification} -F${text_angle} "
+text_options="-F+f${size},${fontname},${color}${justification}${text_angle} "
 
 
 gmt psxy  ${keeling}  -Y${height} -W3p,blue ${J_options} ${R_options}  -K  -O >> ${plot}
